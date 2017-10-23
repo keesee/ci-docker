@@ -1,0 +1,4 @@
+{
+  "host": "circle-ci-docker-app.feathersjs.com",
+  "port": "PORT"
+}
