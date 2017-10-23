@@ -5,5 +5,41 @@
   "paginate": {
     "default": 10,
     "max": 50
-  }
+  },
+  "authentication": {
+    "secret": "6fd1b184569578a704a5e1fd7dcbf178067626e5a14fe423dbb7e0e4e7b6da59f5398ee2e82540b4ac6f5a1b9a103870b71dff8158db6345020f013249f104d0e2e875b00c48645e4aa8476f213ee3a75a89ab62070725f66dace63b2fc7c3bd02e7148ea64ed699eb2dbbe47d9ee0b953addab38ecd33eb3d2178c224fa3b4d997a674467e9f1db2947a5cd8f2a6a9551c4e02e19553fd5ca580be18fc7af8a7da90a9d549eb9185540b083712e4d827f5d2ae32007a1b23bdc9f2879350179d83eec0461c84dc095e1a9bee7243aaba06b75836f35c5162d5f78980d7617d01082d4feb1e2a4b24c3858bb6c5a6e5d1fcb13240c815cd8677835ca8cbc9d47",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "github": {
+      "clientID": "your github client id",
+      "clientSecret": "your github client secret",
+      "successRedirect": "/"
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  },
+  "mongodb": "mongodb://localhost:27017/circle_ci_docker"
 }
